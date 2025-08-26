@@ -24,7 +24,7 @@ COPY app.py .
 RUN mkdir -p /tmp/streamlit_uploads
 
 # Expor porta do Streamlit
-EXPOSE 3000
+EXPOSE 8501
 
 # Configurar variáveis de ambiente do Streamlit
 ENV STREAMLIT_SERVER_MAX_UPLOAD_SIZE=200
@@ -32,4 +32,4 @@ ENV STREAMLIT_SERVER_ENABLE_CORS=false
 ENV STREAMLIT_SERVER_ENABLE_XSRF_PROTECTION=false
 
 # Comando para executar a aplicação
-CMD ["streamlit", "run", "app.py", "--server.address=0.0.0.0", "--server.port=8501", "--server.headless=true"]
+CMD ["streamlit", "run", "app.py", "--client.showErrorDetails=false"]
