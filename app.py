@@ -48,8 +48,12 @@ def main():
         layout="centered"
     )
 
-    # Header
-    st.image("images/booknando.png", width=200)
+    image_path = Path(__file__).parent / "images" / "booknando.png"
+
+    if image_path.exists():
+        st.image(str(image_path), width=200)
+    else:
+        st.text("by Booknando")
 
     st.markdown(
         "<h1 style='font-size:18px;'>Conversor de EPUB para Word</h1>", unsafe_allow_html=True
