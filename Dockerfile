@@ -24,7 +24,7 @@ COPY app.py .
 RUN mkdir -p /tmp/streamlit_uploads
 
 # Expor porta do Streamlit
-EXPOSE 8501
+EXPOSE 3000
 
 # Configurar variáveis de ambiente do Streamlit
 ENV STREAMLIT_SERVER_MAX_UPLOAD_SIZE=200
