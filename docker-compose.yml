@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  epub-converter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8501:8501"
+    environment:
+      - STREAMLIT_SERVER_MAX_UPLOAD_SIZE=200
+      - STREAMLIT_SERVER_ENABLE_CORS=false
+      - STREAMLIT_SERVER_ENABLE_XSRF_PROTECTION=false
+    volumes:
+      # Opcional: montar diretório local para uploads persistentes
+      - ./uploads:/tmp/streamlit_uploads
+    restart: unless-stopped
+    container_name: epub-to-word-converter
+    
+    # Configurações de recursos (opcional)
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+          cpus: '0.5'
+        reservations:
+          memory: 256M
+          cpus: '0.1'
